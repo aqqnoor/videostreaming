@@ -1,0 +1,22 @@
+// gRPC интерфейсі
+syntax = "proto3";
+
+package videostreaming;
+
+service VideoStreaming {
+  rpc ProcessVideo (VideoRequest) returns (VideoPartsResponse);
+}
+
+message VideoRequest {
+  string video_url = 1;
+  int32 segment_duration = 2;
+  optional string output_format = 3;
+  optional string filename_prefix = 4;
+  optional bool cleanup = 5;
+  optional int32 max_duration = 6;
+}
+
+message VideoPartsResponse {
+  repeated string parts = 1;
+}
+  
