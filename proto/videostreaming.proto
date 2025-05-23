@@ -1,8 +1,9 @@
 // gRPC интерфейсі
 syntax = "proto3";
 
-package videostreaming;
 
+package videostreaming;
+option go_package = "videostreaming/proto;proto";
 service VideoStreaming {
   rpc ProcessVideo (VideoRequest) returns (VideoPartsResponse);
 }
